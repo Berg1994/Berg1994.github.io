@@ -1,0 +1,61 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="author" content="Berg"><link rel="alternative" href="/atom.xml" title="Berg's carlsberg" type="application/atom+xml"><link rel="icon" href="/favicon.png"><title>title - Berg's carlsberg</title><link rel="stylesheet" href="/css/main.css"><link rel="stylesheet" href="/js/fancybox/jquery.fancybox.min.css"><!--[if lt IE 9]><script>(function(a,b){a="abbr article aside audio bdi canvas data datalist details dialog figcaption figure footer header hgroup main mark meter nav output progress section summary template time video".split(" ");for(b=a.length-1;b>=0;b--)document.createElement(a[b])})()</script><![endif]--><script src="/js/jquery-3.1.1.min.js"></script><script src="/js/fancybox/jquery.fancybox.min.js"></script></head><body style="opacity:0"><header class="head"><h1 class="head-title u-fl"><a href="/">Berg's carlsberg</a></h1><nav class="head-nav u-fr"><ul class="head-nav__list"><li class="head-nav__item"><a class="head-nav__link" href="/archives">カタログ/（目录）</a></li></ul></nav></header><main class="main"><article class="post"><header class="post__head"> <time class="post__time" datetime="2018-07-03T11:45:38.000Z">July 3, 2018</time><h1 class="post__title"><a href="/2018/07/03/flaskday01/">title</a></h1><div class="post__main echo"><ol>
+<li><code>flask</code></li>
+</ol>
+<p><code>用于开发web的微框架,有很多的拓展包</code></p>
+<a id="more"></a>
+<p><code>所有 Flask 程序都必须创建一个程序实例。Web 服务器使用一种名为 Web 服务器网关接口 （Web Server Gateway Interface，WSGI）的协议，把接收自客户端的所有请求都转交给这 个对象处理。</code> </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pip install flask_script</span><br><span class="line"></span><br><span class="line">pip install flask</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li><code>创建虚拟环境</code></li>
+</ol>
+<p><code>安装flask pip install flask</code></p>
+<p>项目 <code>hello.py</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">from flask import Flask</span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line">@app.route(&quot;/&quot;)</span><br><span class="line">def hello():</span><br><span class="line">    return &quot;Hello World!&quot;</span><br><span class="line">    </span><br><span class="line">if __name = &apos;__main__&apos;</span><br><span class="line">	app.run()</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	Flask 类的构造函数只有一个必须指定的参数，即程序主模块或包的名字。在大多数程序 中，Python 的 name 变量就是所需的值。</span><br><span class="line">	</span><br><span class="line">    __name__==&apos;__main__&apos; 是 Python 的惯常用法，在这里确保直接执行这个脚本时才启动开发</span><br><span class="line">Web 服务器。如果这个脚本由其他脚本引入，程序假定父级脚本会启动不同的服务器，因</span><br><span class="line">此不会执行 app.run()</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li><code>启动项目</code></li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python hello_world.py runserver</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li><code>修改启动方式</code></li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app.run(debug=Ture, port=<span class="number">8080</span>, host=<span class="string">'0.0.0.0'</span>)</span><br></pre></td></tr></table></figure>
+<ol start="5">
+<li><code>修改启动方式</code></li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">pip install flask_script</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> flask_script <span class="keyword">import</span> Manager</span><br><span class="line"></span><br><span class="line">manage = Manager(app=app)</span><br></pre></td></tr></table></figure>
+<p><code>启动项目</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">	manage.run()</span><br><span class="line"></span><br><span class="line">启动命令 python hello.py runserver -p <span class="number">8000</span> -h <span class="number">0.0</span><span class="number">.0</span><span class="number">.0</span> -d</span><br></pre></td></tr></table></figure>
+<ol start="6">
+<li><code>路由规则</code></li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">string(默认)</span><br><span class="line"></span><br><span class="line">int</span><br><span class="line"></span><br><span class="line">float</span><br><span class="line"></span><br><span class="line">path</span><br><span class="line"></span><br><span class="line">uuid</span><br></pre></td></tr></table></figure>
+<ol start="7">
+<li><code>blueprint 蓝图</code></li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:8080/user/login/</span><br><span class="line"></span><br><span class="line">127.0.0.1:8080/user/register/</span><br><span class="line"></span><br><span class="line">127.0.0.1:8080/axf/home/</span><br><span class="line"></span><br><span class="line">127.0.0.1:8080/axf/mine/</span><br></pre></td></tr></table></figure>
+<p><code>pip install flask_blueprint</code></p>
+<p>`用蓝图来管理路由</p>
+<p>项目拆分`</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Flask(__name__)</span><br></pre></td></tr></table></figure>
+<ol start="8">
+<li><code>指定static目录，和templates目录地址的</code></li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Flask(name, </span><br><span class="line"></span><br><span class="line">	static_folder=<span class="string">'static'</span>,</span><br><span class="line"></span><br><span class="line">	templates_fodler=<span class="string">'templates'</span></span><br><span class="line"></span><br><span class="line">	)</span><br></pre></td></tr></table></figure>
+<ol start="9">
+<li><code>request</code></li>
+</ol>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">程序收到客户端发来的请求时，要找到处理该请求的视图函数。为了完成这个任务，Flask 会在程序的 URL 映射中查找请求的 URL。URL 映射是 URL 和视图函数之间的对应关系。 Flask 使用 app.route 修饰器或者非修饰器形式的 app.add<span class="emphasis">_url_</span>rule() 生成映射</span><br></pre></td></tr></table></figure>
+<p>post请求： <code>request.form</code></p>
+<p>get请求 ：<code>request.args</code></p>
+<ol start="10">
+<li><code>url_for</code></li>
+</ol>
+<p><code></code>url_for<code>(&#39;蓝图第一个参数.函数名&#39;)</code></p>
+<p>11.<code>响应</code></p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Flask 调用视图函数后，会将其返回值作为响应的内容。大多数情况下，响应就是一个简 单的字符串，作为 HTML 页面回送客户端。 但 HTTP 协议需要的不仅是作为请求响应的字符串。HTTP 响应中一个很重要的部分是状 态码，Flask 默认设为 200，这个代码表明请求已经被成功处理。</span><br></pre></td></tr></table></figure>
+<ol start="12">
+<li><code>渲染</code></li>
+</ol>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Flask 提供的 render<span class="emphasis">_template 函数把 Jinja2 模板引擎集成到了程序中。render_</span>template 函 数的第一个参数是模板的文件名。随后的参数都是键值对，表示模板中变量对应的真实 值。在这段代码中，第二个模板收到一个名为 name 的变量。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">from flask import Flask, render_template</span><br><span class="line"># ...</span><br><span class="line">@app.route(&apos;/&apos;)</span><br><span class="line">def index():</span><br><span class="line"> return render_template(&apos;index.html&apos;)</span><br><span class="line">@app.route(&apos;/user/&lt;name&gt;&apos;)</span><br><span class="line">def user(name):</span><br><span class="line"> return render_template(&apos;user.html&apos;, name=name)</span><br></pre></td></tr></table></figure>
+</div></header></article><div class="comments" id="lv-container" data-id="city" data-uid="your uid"><script>(function(d, s) {var j, e = d.getElementsByTagName(s)[0];if (typeof LivereTower === 'function') { return; } j = d.createElement(s);j.src = 'https://cdn-city.livere.com/js/embed.dist.js';j.async = true;e.parentNode.insertBefore(j, e);})(document, 'script');</script></div></main><footer class="foot"><div class="foot-copy">&copy; 2018 Berg</div></footer><script src="/js/scroller.js"></script><script src="/js/main.js"></script></body></html>
